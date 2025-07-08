@@ -33,6 +33,9 @@ docker container run \
     traces --otlp-insecure --duration 5s --otlp-endpoint otelcollector:4317
 ```
 
+Repeat the command and use `logs` or `metrics` instead of `traces`, and you will
+send ... logs or metrics to the OpenTelemetry collector.
+
 ## Stop the otelcollector container
 
 Stop the `otelcollector` container by pressing CTRL-C in the first terminal.
