@@ -1,0 +1,33 @@
+---
+serviceAccount:
+  create: false
+  name: opentelemetry-demo
+
+# prometheus subchart
+prometheus:
+  rbac:
+    create: false
+  serviceAccounts:
+    server:
+      create: false
+      name: opentelemetry-demo
+
+# grafana subchart
+grafana:
+  securityContext:
+    runAsUser: null
+    runAsGroup: null
+    fsGroup: null
+  rbac:
+    create: false
+  serviceAccount:
+    create: false
+    name: opentelemetry-demo
+
+# jaeger subchart
+jaeger:
+  allInOne:
+    podSecurityContext:
+      runAsUser: null
+      runAsGroup: null
+      fsGroup: null
