@@ -32,3 +32,11 @@ docker container run \
     ghcr.io/open-telemetry/opentelemetry-collector-contrib/telemetrygen:latest \
     traces --otlp-insecure --duration 5s --otlp-endpoint otelcollector:4317
 ```
+
+## Stop the otelcollector container
+
+Stop the `otelcollector` container by pressing CTRL-C in the first terminal.
+
+## Remove the network
+
+Remove your network using `docker network rm opentelemetry-demo-schulungXX`.
