@@ -36,6 +36,19 @@ The first network policy forbids all ingress traffic, even from pods in the same
 namespace.
 
 ```
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: nginx-denied
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+```
+
+Apply it to the cluster and test again.
+
+```
 $ kubectl apply -f Networkpolicy_denied.yml
 # connect to the first pod
 $ kubectl exec -ti nginx-deployment-5cdffb8544-kgpf7 -- bash
