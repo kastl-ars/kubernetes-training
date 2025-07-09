@@ -1,0 +1,10 @@
+---
+
+- op: replace
+  path: /metadata/name
+  value: nginx-index-html-production
+
+- op: replace
+  path: /data
+  value:
+    index.html: THIS IS PRODUCTION!

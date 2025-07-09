@@ -1,0 +1,12 @@
+[
+  {
+    "op": "replace",
+    "path": "/spec/replicas",
+    "value": 10
+  },
+  {
+    "op": "replace",
+    "path": "/metadata/name",
+    "value": "nginx-production-deployment"
+  }
+]
