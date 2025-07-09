@@ -2,7 +2,7 @@
   {
     "op": "replace",
     "path": "/spec/replicas",
-    "value": 10
+    "value": 3
   },
   {
     "op": "replace",
