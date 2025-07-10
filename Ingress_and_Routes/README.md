@@ -69,7 +69,10 @@ As you can see, the ingress we created has automatically configured a HTTP
 redirect from HTTP to HTTPS to enable TLS-encryption of the traffic, as is best
 practice.
 
-The part that configures this redirect is the annotation:
+Run the `curl` command again, without the `-v` option, but run it against
+`https://HOSTNAME_GOES_HERE`. What happens?
+
+The part that configures the HTTP-to-HTTPS-redirect is the annotation:
 
 ```
 metadata:
@@ -79,7 +82,7 @@ metadata:
 ```
 
 Remove the annotation from the ingress, deploy it again and run the `curl`
-command again. What happens?
+command again. What happens? What happens if you `curl` the https-URL?
 
 ## Using OpenShift Routes directly
 
