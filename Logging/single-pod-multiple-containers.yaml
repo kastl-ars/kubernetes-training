@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: single-pod-multiple-containers
+spec:
+  containers:
+  - name: container1
+    image: busybox:latest
+    args:
+      - /bin/sh
+      - -c
+      - 'i=0; while true; do echo "container1 - $i: $(date)"; i=$((i+1)); sleep 1; done'
+  - name: container2
+    image: busybox:latest
+    args:
+      - /bin/sh
+      - -c
+      - 'i=0; while true; do echo "container2 - $i: $(date)"; i=$((i+1)); sleep 1; done'
+  - name: container3
+    image: busybox:latest
+    args:
+      - /bin/sh
+      - -c
+      - 'i=0; while true; do echo "container3 - $i: $(date)"; i=$((i+1)); sleep 1; done'
+  - name: container4
+    image: busybox:latest
+    args:
+      - /bin/sh
+      - -c
+      - 'i=0; while true; do echo "container4 - $i: $(date)"; i=$((i+1)); sleep 1; done'
