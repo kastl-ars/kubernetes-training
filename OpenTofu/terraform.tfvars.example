@@ -1,0 +1,8 @@
+# the host from your kubeconfig file
+host         = "https://kubernetes.example.org:6443"
+# the token from your kubeconfig file
+client_token = "sha256~lqaLIp..."
+# your namespace
+namespace    = "schulungXXwork"
+# your ingress hostname
+ingress_hostname = "YOUR_INGRESS_HOSTNAME_GOES_HERE"
