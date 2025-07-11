@@ -2,3 +2,10 @@
 
 # ignore the kubeconfig file
 Ansible/kubeconfig.yml
+
+# OpenTofu files
+OpenTofu/.terraform
+OpenTofu/.terraform.lock.hcl
+OpenTofu/terraform.tfstate
+OpenTofu/terraform.tfstate.backup
+OpenTofu/terraform.tfvars
