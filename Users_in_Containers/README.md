@@ -109,3 +109,9 @@ drwxrwsr-x    3 root     2000        1.0K Jul 11 10:46 demo
 ```
 
 Why does our container lack permissions to write to the PV?
+
+## Encore
+
+Remove everything, create the PVC and immediately create the pod with UID 1002.
+What are the permissions of the `/data/demo/` directory? Can you create a file
+there?
