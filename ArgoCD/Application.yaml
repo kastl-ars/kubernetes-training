@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-example-schulungXX
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "99"
+spec:
+  project: default
+  source:
+    path: nginx-example
+    repoURL: https://github.com/kastl-ars/argocd-example
+    targetRevision: main
+  destination:
+    namespace: YOUR_NAMESPACE_GOES_HERE
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
