@@ -1,0 +1,82 @@
+---
+
+- name: 'Create a PVC and install Nginx using this PVC'
+  hosts: 'localhost'
+  gather_facts: true
+  become: false
+  module_defaults:
+    kubernetes.core.helm:
+      kubeconfig: './kubeconfig.yml'
+    kubernetes.core.k8s:
+      kubeconfig: './kubeconfig.yml'
+    kubernetes.core.k8s_info:
+      kubeconfig: './kubeconfig.yml'
+    kubernetes.core.k8s_exec:
+      kubeconfig: './kubeconfig.yml'
+
+  pre_tasks:
+
+    - name: 'Fail if target_namespace is undefined'
+      ansible.builtin.fail:
+        msg: 'Please make sure target_namespace is set'
+      when:
+        - target_namespace is undefined
+
+  tasks:
+
+    - name: 'Create PVC nginx-pvc1'
+      kubernetes.core.k8s:
+        state: 'present'
+        resource_definition: |
+          apiVersion: v1
+          kind: PersistentVolumeClaim
+          metadata:
+            name: nginx-pvc1
+            namespace: "{{ target_namespace }}"
+          spec:
+            storageClassName: thin-csi
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 100Mi
+
+    - name: 'Install nginx-pvc1'
+      kubernetes.core.helm:
+        chart_ref: 'oci://registry-1.docker.io/bitnamicharts/nginx'
+        release_name: 'nginx-pvc1'
+        release_namespace: "{{ target_namespace }}"
+        release_values:
+          global:
+            compatibility:
+              openshift:
+                adaptSecurityContext: force
+          staticSitePVC: 'nginx-pvc1'
+          service:
+            type: ClusterIP
+          tls:
+            enabled: false
+          ingress:
+            enabled: false
+          initContainers:
+            - name: init-myservice
+              image: busybox:1.28
+              command: ['sh', '-c', "date > /app/index.html"]
+              volumeMounts:
+                - mountPath: /app
+                  name: staticsite
+
+    - name: 'Wait until all pods are running'
+      kubernetes.core.k8s_info:
+        api_version: v1
+        kind: Pod
+        namespace: "{{ target_namespace }}"
+      register: pod_list
+      until:
+        '
+        pod_list | json_query("resources[*].status.phase") | unique | sort == ["Running"]
+        or
+        pod_list | json_query("resources[*].status.phase") | unique | sort == ["Running", "Succeeded"]
+        '
+      retries: 12
+      delay: 10
