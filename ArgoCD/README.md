@@ -34,6 +34,13 @@ Start making modifications.
 
 * What happens if you increase/decrease the number of replicas?
 * What happens if you rename the service in `nginx-example/service.yml`?
+* What happens if you delete the Application using `kubectl delete -f
+  Application.yaml`?
 * Add another directory called `busybox` in your ArgoCD repository and create
   another Application to use this directory
+* Add another directory called `podinfo` and install the [`podinfo`
+  application](https://github.com/stefanprodan/podinfo/tree/master/charts/podinfo)
+  via helm
+* Have a long look at [the "official" ArgoCD
+  examples](https://github.com/argoproj/argocd-example-apps)
 * ...
