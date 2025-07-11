@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blue-nginx
+  template:
+    metadata:
+      labels:
+        app: blue-nginx
+    spec:
+      containers:
+        - name: blue-nginx
+          image: nginx
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: color
+                    operator: In
+                    values:
+                      - blue
