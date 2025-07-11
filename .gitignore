@@ -1,1 +1,4 @@
 **/*11*
+
+# ignore the kubeconfig file
+Ansible/kubeconfig.yml
