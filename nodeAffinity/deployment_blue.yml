@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: blue-nginx
-          image: nginx
+          image: quay.io/packit/nginx-unprivileged
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
