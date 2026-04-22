@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    # for OpenShift, an ingress can be defined for HTTPS without its own
+    # secret, with the "route.openshift.io/termination: edge" annotation
+    # It will then use the ingress controller's default certificate
+    route.openshift.io/termination: edge
+spec:
+  rules:
+  - host: nginxXX.apps.dmz-kurs.ars-computer.de
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
