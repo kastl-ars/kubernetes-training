@@ -138,3 +138,9 @@ $ kubectl exec -ti nginx-... -n schulungXXhome -- bash
 [... runs into a timeout ...]
 /$ exit
 ```
+
+## Bonus
+
+* Write a network policy that allows pods in your `schulungXXhome` namespace to
+connect
+* Allow only `alpine` pods in your `schulungXXhome` namespace to connect
