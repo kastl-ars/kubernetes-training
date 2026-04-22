@@ -8,7 +8,7 @@ Get your pods IP address, `exec` into the alpine pod in your
 `schulungXXhome` namespace and curl your pod:
 
 ```bash
-$ kubectl exec -ti alpine-deployment-5c4cfc6786-8gsjk -n schulungXXhome -- sh
+$ kubectl exec -ti deployment/alpine-deployment -n schulungXXhome -- sh
 ~ $ curl --silent -I 10.129.4.15:8080 | head -1
 HTTP/1.1 200 OK
 ~ $
