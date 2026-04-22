@@ -115,7 +115,7 @@ namespace.
 $ kubectl get pods -n schulungXXhome
 NAME                                 READY   STATUS    RESTARTS   AGE
 alpine-deployment-5c4cfc6786-8gsjk   1/1     Running   0          23d
-$ kubectl exec -ti alpine-deployment-5c4cfc6786-8gsjk -n schulungXXhome -- sh
+$ kubectl exec -ti deployment/alpine-deployment -n schulungXXhome -- sh
 ~ $ curl 10.131.0.195:8080
 [... runs into a timeout ...]
 ~ $ exit
