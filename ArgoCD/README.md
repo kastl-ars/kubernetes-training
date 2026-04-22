@@ -27,6 +27,9 @@ the UI.
 
 ## Switching to your own repository
 
+- [example repository on Codeberg](https://codeberg.org/kastl_ars/argocd-example)
+- [example repository on GitHub](https://github.com/kastl-ars/argocd-example)
+
 Fork the example repository (or create your own manually). Change the `repoURL`
 in your `Application.yaml` and apply it using `kubectl apply`.
 
