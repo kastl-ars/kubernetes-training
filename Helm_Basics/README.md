@@ -34,7 +34,7 @@
 
 ## Getting the pods running
 
-* change the image in the chart to the one using in other exercises
+* change the image in the chart to the one used in other exercises
 * upgrade and notice the pods are still crashing
 * adjust the chart to the new image (hint: ports)
 * upgrade and notice the pods are now running fine
