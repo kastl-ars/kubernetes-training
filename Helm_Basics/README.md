@@ -46,7 +46,7 @@
   the `XX`)
 * try to find the right settings to enable the ingress
 * try to adjust your chart so the ingress is working with the new image
-* Run `curl -kIL ... | head -n 1` against your ingress to check if it is working
+* Run `curl -skIL ... | head -n 1` against your ingress to check if it is working
   (or use your browser, ignoring the self-signed certificate)
 
 ## ConfigMaps
