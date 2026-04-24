@@ -54,6 +54,7 @@
 * Add a configMap to your chart and adjust the deployment, to mount only the
   `index.html` key to `/usr/share/nginx/html/index.html`
 * Make sure the deployment is being updated, when the configMap is modified
+
   [Helm documentation](https://helm.sh/docs/howto/charts_tips_and_tricks/#automatically-roll-deployments)
 
 ## Dependencies
