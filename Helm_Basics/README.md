@@ -53,4 +53,6 @@
 * Add a dependency to your chart
 * make your dependency optional,  i.e. use `condition`
 * make sure your optional dependency is not installed by default
-* Set some parameters for your dependency
+* Set some parameters for your dependency chart
+  - set the number of replicas for your dependency chart
+* run `helm template foo .`, what happens now?
