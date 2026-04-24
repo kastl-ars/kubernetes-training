@@ -25,6 +25,7 @@
 
 ## Rolling back
 
+* check your helm release's history with `helm history foo`
 * rollback to the first revision using `helm rollback ...` (side quest: how to
   find out the right parameters for this command?)
 
@@ -46,3 +47,10 @@
 * try to find the right settings to enable the ingress
 * Run `curl -kIL ... | head -n 1` against your ingress to check if it is working
   (or use your browser, ignoring the self-signed certificate)
+
+## Dependencies
+
+* Add a dependency to your chart
+* make your dependency optional,  i.e. use `condition`
+* make sure your optional dependency is not installed by default
+* Set some parameters for your dependency
