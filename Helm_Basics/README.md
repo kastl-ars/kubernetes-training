@@ -1,0 +1,48 @@
+# Helm Basics
+
+## First installation
+
+* Create a new helm chart using `helm create yournamehere`
+* remove the `template/tests/` directory
+* adjust the `Chart.yaml`
+* run `helm dependency build`
+* run `helm template foo .` (either `.` or the full or relative path to your
+  `yourname` directory)
+* find out the right `--set` command to enable the ingress
+* find out how to set the ingress hostname to
+  `nginxXX.apps.dmz-kurs.ars-computer.de` (using your user's number instead of
+  the `XX`)
+* install the chart using `helm install foo .` (either `.` or the full or
+  relative path to your `yourname` directory)
+  * you'll notice the pods are crashing (`CrashLoopBackOff`)
+
+## Upgrading your chart installation
+
+* upgrade without changes using `helm upgrade foo ...`
+* change the number of replicas in the chart's `values.yaml` file to `2`
+* upgrade your `foo` release
+* check for helm releases with `helm ls`
+
+## Rolling back
+
+* rollback to the first revision using `helm rollback ...` (side quest: how to
+  find out the right parameters for this command?)
+
+## Getting the pods running
+
+* change the image in the chart to the one using in other exercises
+* upgrade and notice the pods are still crashing
+* adjust the chart to the new image (hint: ports)
+* upgrade and notice the pods are now running fine
+
+## `--set` vs. your own file containing your settings
+
+* create a `meinewerte.yaml` file and add the equivalent of your `--set`
+  parameter above
+* run `helm upgrade foo -f meinewerte.yaml ...` (without the `--set`)
+
+## Getting the ingress working
+
+* try to find the right settings to enable the ingress
+* Run `curl -kIL ... | head -n 1` against your ingress to check if it is working
+  (or use your browser, ignoring the self-signed certificate)
