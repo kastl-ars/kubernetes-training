@@ -1,7 +1,10 @@
 # Requests, limits and LimitRanges
 
-* https://home.robusta.dev/blog/stop-using-cpu-limits
-
+* <https://home.robusta.dev/blog/stop-using-cpu-limits>
+* <https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/>
+* <https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/cpu-default-namespace/>
+* <https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-constraint-namespace/>
+* <https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/cpu-constraint-namespace/>
 
 ## Use a LimitRange to enforce request and limits being set
 
