@@ -26,3 +26,13 @@ kubectl apply -f rolebinding-demo.yml
 kubectl config use-context demo-user-context
 kubectl get pods
 ```
+
+## Create a new pod
+
+```bash
+kubectl run nginx --image=quay.io/packit/nginx-unprivileged
+kubectl get pods
+kubectl delete pod nginx
+```
+
+What happened on the last command?
