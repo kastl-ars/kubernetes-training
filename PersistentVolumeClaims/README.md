@@ -6,6 +6,7 @@
 
 * Create a PVC matching a `storageClass` in your cluster
   * `kubectl get sc` gives you the existing `storageClasses`
+  * You can use the `pvc.yaml.sample` file as a starting point
 * Check for a matching `persistentVolume`
   * in case there is none, what is the status of your PVC?
   * in case there a PV, what is the status of your PVC?
