@@ -17,10 +17,18 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: nginx
-        image: nginx
+        image: quay.io/packit/nginx-unprivileged
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop:
+             - ALL
         ports:
-        - containerPort: 80
-          name: web
+          - containerPort: 8080
+            protocol: TCP
         volumeMounts:
         - name: www
           mountPath: /usr/share/nginx/html
